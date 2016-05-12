@@ -86,7 +86,7 @@ public class TestStoreAndQuery {
 	}
 
 	@Test
-	public final void testSODAQuery() {
+	public final void testSODAQuery1() {
 		db = Db4oEmbedded.openFile(DB_FILE);
 
 		Query query = db.query();
@@ -95,5 +95,19 @@ public class TestStoreAndQuery {
 		ObjectSet<Publication> publications = query.execute();
 		assertEquals(1, publications.size());
 		assertEquals(BOOK_NAME, publications.get(0).getTitle());
+	}
+	
+	@Test
+	public final void testSODAQuery2() {
+		db = Db4oEmbedded.openFile(DB_FILE);
+		
+		Query query = db.query();
+		query.constrain(Publication.class);
+		Author protoAuthor = new Author("Moira C. Norrie");
+		query.descend("authors").constrain(protoAuthor).contains();
+		
+		ObjectSet<Publication> pubs = query.execute();
+		assertEquals(1, pubs.size());
+		assertEquals(BOOK_NAME, pubs.get(0).getTitle());
 	}
 }
