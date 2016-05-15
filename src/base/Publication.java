@@ -24,9 +24,15 @@ public class Publication {
 	
 	public void addAuthor(Author a) {
 		authors.add(a);
+		a.addPublication(this);
+	}
+	
+	public void setYear(int i) {
+		this.year = i;
+		
 	}
 	public int getYear() {
-		// TODO Auto-generated method stub
-		return year;
+		return this.year;
+		
 	}
 }

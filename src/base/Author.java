@@ -21,4 +21,20 @@ public class Author {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public Set<Publication> getPublications() {
+		return pubs;
+	}
+	
+	public void addPublication(Publication pub) {
+		this.pubs.add(pub);
+	}
 }

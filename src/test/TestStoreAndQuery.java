@@ -75,6 +75,7 @@ public class TestStoreAndQuery {
 	public final void testNativeQuery() {
 		db = Db4oEmbedded.openFile(DB_FILE);
 
+		@SuppressWarnings("serial")
 		ObjectSet<Publication> pubs = db.query(new Predicate<Publication>() {
 			public boolean match(Publication pub) {
 				return pub.getYear() > 1995;
