@@ -33,6 +33,7 @@ public class TestSimpleStructuredObjects {
 		article.addAuthor(moira);
 
 		db = Db4oEmbedded.openFile(DB_FILE);
+		
 		db.store(article);
 
 		db.close();
